@@ -1,3 +1,4 @@
 git add file_name
 git commmit -m "comments of code"
+git merge branch_name(that you want to merge)
 git push
