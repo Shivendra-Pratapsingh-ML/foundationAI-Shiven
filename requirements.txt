@@ -1,2 +1,4 @@
 pyvmomi
 pytest
+pytest-cov
+coverage
