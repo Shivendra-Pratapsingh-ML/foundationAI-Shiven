@@ -36,10 +36,20 @@ jobs:
       - run:
           name: Run tests
           # This assumes pytest is installed via the install-package step above
-          command: | 
-            python3 hello_world.py
-            echo "pytest" 
+          command: pytest
 
+
+  run_app: 
+    docker:
+      - image: cimg/python:3.10.2
+    steps:
+      - checkout
+      - python/install-packages:
+          pkg-manager: pip
+      - run:
+          name: Run tests
+          command: python3 hello_world.py
+    
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
@@ -47,3 +57,4 @@ workflows:
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - build-and-test
+
